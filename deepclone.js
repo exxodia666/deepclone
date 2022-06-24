@@ -5,17 +5,20 @@ function test() {
     console.log('Objects equal: ', checkObjects(initialObject, clonedObj));
 }
 function deepIteration(obj, array) {
-    if (array === void 0) { array = []; }
+    if (array === void 0) {
+        array = [];
+    }
     for (var key in obj) {
         if (typeof obj[key] === 'object') {
             deepIteration(obj[key], array);
-        }
-        else {
+        } else {
             array.push([key, obj[key]]);
         }
     }
     return array;
 }
+
+console.log(initialObject)
 function checkObjects(obj1, obj2) {
     var _a = [deepIteration(obj1), deepIteration(obj2)], arr1 = _a[0], arr2 = _a[1];
     for (var i = 0; i < arr1.length; i++) {
